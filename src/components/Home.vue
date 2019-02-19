@@ -18,17 +18,17 @@
           text-color="#fff"
           active-text-color="#409EFF"
           :unique-opened="true"
-          :style="menushow ? 'width:65px;' : 'width:200px;'"
           :collapse="menushow"
           :collapse-transition="false"
+          :router="true"
         >
-          <el-submenu :index="item.id+''" v-for="(item,k) in menuList" :key="item.id">
+          <el-submenu :index="item.id+''" v-for="(item,k) in menuList" :key="item.id" :style="menushow ? 'width:65px;' : 'width:200px;'">
             <template slot="title">
               <i :class="'iconfont icon-'+menuicon[k]"></i>
               <span>{{item.authName}}}</span>
             </template>
             <el-menu-item
-              :index="item.id+'-'+item2.id"
+              :index="item2.path"
               v-for="item2 in item.children"
               :key="item2.id"
             >
